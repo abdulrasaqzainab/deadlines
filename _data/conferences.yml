@@ -1,4 +1,13 @@
 ---
+- title: Digital Humanities Association of Southern Africa 2023
+  year: 2023
+  id: DHASA2023
+  link: https://dh2023.digitalhumanities.org.za
+  deadline: '2023-08-15 23:59:59'
+  timezone: GMT+2
+  date: November 27-December 1, 2023
+  place: Gqeberha, South Africa
+  sub: CON
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2023
   id: SACAIR2023
