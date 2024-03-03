@@ -1,5 +1,5 @@
 ---
-- title: Data Science Africa 2024
+- title: Data Science Africa
   year: 2024
   id: DSA2024
   link: https://www.datascienceafrica.org/dsa2024nyeri/
@@ -8,7 +8,7 @@
   date: June 3-7, 2024
   place: Nyeri, Kenya
   sub: WP
-- title: Deep Learning Indaba 2024
+- title: Deep Learning Indaba
   year: 2024
   id: DLI2024
   link: https://deeplearningindaba.com/2024/
@@ -17,7 +17,7 @@
   date:  Sep 1 - 7 Sep, 2024
   place: Dakar, Senegal
   sub: WP
-- title: African Computer Vision Summer Schoo 2024
+- title: African Computer Vision Summer School
   year: 2024
   id: ACVSS2024
   link: https://www.acvss.ai/
@@ -26,7 +26,7 @@
   date:  Jul 14 - 24 Jul, 2024
   place: Nairobi, Kenya
   sub: WP
-- title: IST-Africa 2024
+- title: IST-Africa
   year: 2024
   id: IST-Africa2024
   link: http://www.ist-africa.org/
@@ -35,7 +35,7 @@
   date: TBC
   place: TBC
   sub: CON
-- title: Digital Humanities Association of Southern Africa 2023
+- title: Digital Humanities Association of Southern Africa
   year: 2023
   id: DHASA2023
   link: https://dh2023.digitalhumanities.org.za
