@@ -1,4 +1,13 @@
 ---
+- title: Southern African Conference for Artificial Intelligence Research
+  year: 2024
+  id: SACAIR2024
+  link: https://2024.sacair.org.za/
+  deadline: '2024-08-04 23:59:59'
+  timezone: GMT+2
+  date: December 2-December 6, 2024
+  place: University of the Free State, Bloemfontein
+  sub: CON
 - title: Data Science Africa
   year: 2024
   id: DSA2024
