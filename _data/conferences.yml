@@ -1,13 +1,22 @@
 ---
 
-- title: 54th African Human Computer Interaction Conference
-  year: 2023
+- title: 5th African Human Computer Interaction Conference
+  year: 2025
   id: AfriCHI2025
   link: https://www.africhi2025.org
-  deadline: '2024-01-31 23:59:59'
+  deadline: '2022-01-31 23:59:59'
   timezone: GMT+2
-  date: Nov 1 - Nov 6, 2021
+  date: Nov 1 - Nov 6, 2025
   place: Cairo, Egypt
+  sub: CON
+- title: IST-Africa
+  year: 2025
+  id: IST-Africa2025
+  link: http://www.ist-africa.org/
+  deadline: '2024-10-18 23:59:59'
+  timezone: GMT+2
+  date: May, 2025
+  place: Nairobi, Kenya
   sub: CON
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2024
