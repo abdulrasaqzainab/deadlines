@@ -35,6 +35,15 @@
   date:  Jul 13 - Jul 23, 2025
   place: Kigali, Rwanda
   sub: WP
+- title: AfricaNLP Workshop
+  year: 2025
+  id: AfricaNLP2025
+  link: https://africanlp.masakhane.io/
+  deadline: '2025-03-10 23:59:59'
+  timezone: UTC-12
+  date: 31 Aug or 1 Sep 2025
+  place: Vienna, Austria
+  sub: WP
 - title: 5th African Human Computer Interaction Conference
   year: 2025
   id: AfriCHI2025
