@@ -1,4 +1,13 @@
 ---
+- title: Southern African Conference for Artificial Intelligence Research
+  year: 2025
+  id: SACAIR2025
+  link: https://2025.sacair.org.za
+  deadline: '2025-08-03 23:59:59'
+  timezone: GMT+2
+  date: December 1 - December 5, 2025
+  place: Cape Town, South Africa
+  sub: CON
 - title: Data Science Africa
   year: 2025
   id: DSA2025
