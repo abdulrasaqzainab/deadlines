@@ -8,15 +8,6 @@
   date: December 1 - December 5, 2025
   place: Cape Town, South Africa
   sub: CON
-- title: Data Science Africa
-  year: 2025
-  id: DSA2025
-  link: https://www.datascienceafrica.org/dsa2025ibadan/2025/03/14/Workshop.html
-  deadline: '2025-04-25 23:59:59'
-  timezone: GMT+2
-  date: June 2 - 6, 2025
-  place: Ibadan, Nigeria
-  sub: WP
 - title: Deep Learning Indaba
   year: 2025
   id: DLI2025
@@ -26,6 +17,15 @@
   date:  Aug 17 - Aug 22, 2025
   place: Kigali, Rwanda
   sub: CON
+- title: Data Science Africa
+  year: 2025
+  id: DSA2025
+  link: https://www.datascienceafrica.org/dsa2025ibadan/2025/03/14/Workshop.html
+  deadline: '2025-04-25 23:59:59'
+  timezone: GMT+2
+  date: June 2 - 6, 2025
+  place: Ibadan, Nigeria
+  sub: WP
 - title: African Computer Vision Summer School (ACVSS)
   year: 2025
   id: ACVSS2025
