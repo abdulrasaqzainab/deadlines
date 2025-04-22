@@ -1,13 +1,4 @@
 ---
-- title: Pan-African Artificial Intelligence and Smart Systems Conference
-  year: 2025
-  id: PAAISS2025
-  link: https://paaiss.com
-  deadline: "2025-06-02 23:59:59"
-  timezone: GMT
-  date: October 15 - October 17, 2025
-  place: Kumasi, Ghana
-  sub: CON
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2025
   id: SACAIR2025
@@ -16,6 +7,15 @@
   timezone: GMT+2
   date: December 1 - December 5, 2025
   place: Cape Town, South Africa
+  sub: CON
+- title: Pan-African Artificial Intelligence and Smart Systems Conference
+  year: 2025
+  id: PAAISS2025
+  link: https://paaiss.com
+  deadline: "2025-06-02 23:59:59"
+  timezone: GMT
+  date: October 15 - October 17, 2025
+  place: Kumasi, Ghana
   sub: CON
 - title: Deep Learning Indaba
   year: 2025
