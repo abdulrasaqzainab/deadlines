@@ -1,3 +1,4 @@
+---
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2025
   id: SACAIR2025
@@ -9,7 +10,7 @@
   sub: CON
 - title: Building Sustainable AI-Driven Digital Transformation Infrastructures for African Economies
   year: 2025
-  id: MIRG-ICAIR2025
+  id: MIRGICAIR2025
   link: https://easychair.org/cfp/MIRG-ICAIR2025
   deadline: "2025-07-21 23:59:59"
   timezone: GMT+1
