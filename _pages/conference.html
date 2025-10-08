@@ -92,6 +92,26 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
             moment.tz.link(link);
           }
         }
+        
+        // Helper function to get timezone with fallback
+        function getSafeTimezone(timezone) {
+          if (!timezone) return "America/New_York";
+          
+          // Check if it's a UTC timezone
+          if (timezone.startsWith("UTC")) {
+            return timezone;
+          }
+          
+          try {
+            // Test if the timezone is valid
+            moment.tz(timezone);
+            return timezone;
+          } catch (e) {
+            console.warn(`Invalid timezone: ${timezone}, falling back to America/New_York`);
+            return "America/New_York";
+          }
+        }
+        
         addUtcTimeZones();
 
         {% for conf in site.data.conferences %}
@@ -126,7 +146,7 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
               // Display abstract deadline if available
               {% if conf.abstract_deadline %}
               $('#abstract-deadline').show();
-              var abstractTimezone = {% if conf.timezone %}"{{conf.timezone}}" {% else %} "America/New_York" {% endif %};
+              var abstractTimezone = getSafeTimezone("{{conf.timezone}}");
               var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
               $('#abstract-deadline-time').text(abstractDate.toString());
               {% endif %}
@@ -167,7 +187,7 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
                 $('.deadline-time').html("TBA");
               {% else %}
                 // adjust date according to deadline timezone
-                var timezone = {% if conf.timezone %}"{{conf.timezone}}" {% else %} "America/New_York" {% endif %};
+                var timezone = getSafeTimezone("{{conf.timezone}}");
                 var confDate = moment.tz("{{conf.deadline}}", timezone);
 
                 // render countdown timer

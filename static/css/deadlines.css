@@ -177,6 +177,26 @@ footer {
   .conf-row {
     margin-bottom: 7px;
   }
+  
+  /* Responsive styles for new fields */
+  .conf-dates, .conf-hindex {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+  
+  .abstract-deadline {
+    font-size: 11px;
+  }
+  
+  .conf-fullname {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+  
+  .conf-links {
+    margin-top: 3px;
+    font-size: 11px;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -215,14 +235,22 @@ footer {
 
 .conf-dates {
   color: #555;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .conf-hindex {
   color: #555;
+  font-weight: 500;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: inline-block;
+  padding-right: 8px;
 }
 
 .abstract-deadline {
   color: #555;
+  font-style: italic;
 }
 
 .conf-links {
