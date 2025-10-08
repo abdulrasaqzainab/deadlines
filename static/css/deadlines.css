@@ -205,3 +205,36 @@ footer {
 .calendar img {
   height: 20px;
 }
+
+/* Styles for new fields */
+.conf-fullname {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.conf-dates {
+  color: #555;
+}
+
+.conf-hindex {
+  color: #555;
+}
+
+.abstract-deadline {
+  color: #555;
+}
+
+.conf-links {
+  margin-top: 5px;
+}
+
+.conf-links a {
+  color: #0097e6;
+  border-bottom: 1px dotted #0097e6;
+}
+
+.conf-links a:hover {
+  color: #00a8ff;
+  border-bottom: 1px solid #00a8ff;
+}

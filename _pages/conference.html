@@ -34,9 +34,28 @@ permalink:  /conference/
                   </h1>
                 </div>
                 <div class="meta deadline col-xs-12">
+                  <div id="conf-fullname" class="conf-fullname"></div>
                   <span id="conf-date"></span>. <span id="conf-place"></span>.<br>
+                  <div id="conf-dates" class="conf-dates small" style="display:none;">
+                    Start: <span id="conf-start"></span>. End: <span id="conf-end"></span>.<br>
+                  </div>
+                  <div id="conf-hindex" class="conf-hindex small" style="display:none;">
+                    H-index: <span id="hindex-value"></span><br>
+                  </div>
                   Deadline: <span class="deadline-time"></span><br>
+                  <div id="abstract-deadline" class="abstract-deadline small" style="display:none;">
+                    Abstract Deadline: <span id="abstract-deadline-time"></span><br>
+                  </div>
                   Website: <a id="conf-website" target="_blank" nohref></a><br>
+                  <div id="conf-additional-links" class="conf-links small" style="display:none;">
+                    <span id="papers-link" style="display:none;">
+                      <a id="papers-link-href" target="_blank" nohref>Papers</a>
+                    </span>
+                    <span id="link-separator" style="display:none;"> | </span>
+                    <span id="pwc-link" style="display:none;">
+                      <a id="pwc-link-href" target="_blank" nohref>PWC</a>
+                    </span>
+                  </div>
                 </div>
             </div>
         </div>
@@ -83,6 +102,64 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
               $('#conf-place').text("{{conf.place}}");
               $('#conf-website').text("{{conf.link}}");
               $('#conf-website').attr('href', "{{conf.link}}");
+              
+              // Display full name if available
+              {% if conf.full_name %}
+              $('#conf-fullname').text("{{conf.full_name}}").show();
+              {% else %}
+              $('#conf-fullname').hide();
+              {% endif %}
+              
+              // Display start and end dates if available
+              {% if conf.start and conf.end %}
+              $('#conf-dates').show();
+              $('#conf-start').text("{{conf.start}}");
+              $('#conf-end').text("{{conf.end}}");
+              {% endif %}
+              
+              // Display h-index if available
+              {% if conf.hindex %}
+              $('#conf-hindex').show();
+              $('#hindex-value').text("{{conf.hindex}}");
+              {% endif %}
+              
+              // Display abstract deadline if available
+              {% if conf.abstract_deadline %}
+              $('#abstract-deadline').show();
+              var abstractTimezone = {% if conf.timezone %}"{{conf.timezone}}" {% else %} "America/New_York" {% endif %};
+              var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
+              $('#abstract-deadline-time').text(abstractDate.toString());
+              {% endif %}
+              
+              // Display additional links if available
+              var hasAdditionalLinks = false;
+              {% if conf.paperslink %}
+              $('#papers-link').show();
+              $('#papers-link-href').attr('href', "{{conf.paperslink}}").text("Papers");
+              hasAdditionalLinks = true;
+              {% else %}
+              $('#papers-link').hide();
+              {% endif %}
+              
+              {% if conf.pwclink %}
+              $('#pwc-link').show();
+              $('#pwc-link-href').attr('href', "{{conf.pwclink}}").text("PWC");
+              hasAdditionalLinks = true;
+              {% else %}
+              $('#pwc-link').hide();
+              {% endif %}
+              
+              if (hasAdditionalLinks) {
+                $('#conf-additional-links').show();
+                {% if conf.paperslink and conf.pwclink %}
+                $('#link-separator').show();
+                {% else %}
+                $('#link-separator').hide();
+                {% endif %}
+              } else {
+                $('#conf-additional-links').hide();
+              }
+              
               var twitter_slug = '<a href="https://twitter.com/share" class="twitter-share-button" data-text="Countdown to the #{{ conf.title }}{{ conf.year }} deadline!" data-show-count="false" style="font-size:13px;">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8">';
               $('#twitter-box').html(twitter_slug);
               {% if conf.deadline == "TBA" %}

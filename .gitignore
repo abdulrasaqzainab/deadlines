@@ -1,1 +1,21 @@
-_site
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+
+# PapersWithCode data files
+utils/pwc_*.yml
+
+# Deprecated utility scripts
+utils/update_structure.py
+utils/simple_download.py
+utils/download_and_compare.py
+
+# Environment
+Gemfile.lock
+
+# Temporary directories
+pr7_repo/
+_site/
+utils/compare_conferences_struct.py

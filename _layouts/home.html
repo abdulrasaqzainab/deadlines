@@ -65,6 +65,9 @@
           <div class="row conf-row">
               <div class="col-xs-5 col-sm-6">
                   <a class="conf-title" href="/conference?id={{ conf.id }}">{{conf.title}} {{conf.year}}</a>
+                  {% if conf.full_name %}
+                  <div class="conf-fullname small">{{conf.full_name}}</div>
+                  {% endif %}
               </div>
               <div class="col-xs-7 col-sm-6">
                 <span class="timer"></span>
@@ -77,10 +80,30 @@
                 <span class="conf-place">
                   <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>.
                 </span>
+                {% if conf.start and conf.end %}
+                <div class="conf-dates small">
+                  <span class="conf-start">Start: {{conf.start}}.</span>
+                  <span class="conf-end">End: {{conf.end}}.</span>
+                </div>
+                {% endif %}
+                {% if conf.hindex %}
+                <span class="conf-hindex small">H-index: {{conf.hindex}}.</span>
+                {% endif %}
               </div>
               {% if conf.note %}
               <div class="note">
                 {{conf.note}}
+              </div>
+              {% endif %}
+              {% if conf.paperslink or conf.pwclink %}
+              <div class="conf-links small">
+                {% if conf.paperslink %}
+                <a href="{{conf.paperslink}}" target="_blank">Papers</a>
+                {% endif %}
+                {% if conf.paperslink and conf.pwclink %} | {% endif %}
+                {% if conf.pwclink %}
+                <a href="{{conf.pwclink}}" target="_blank">PWC</a>
+                {% endif %}
               </div>
               {% endif %}
             </div>
@@ -89,6 +112,11 @@
                 <div>Deadline:
                   <span class="deadline-time"></span>
                 </div>
+                {% if conf.abstract_deadline %}
+                <div class="abstract-deadline small">
+                  Abstract Deadline: <span class="abstract-deadline-time" data-deadline="{{conf.abstract_deadline}}"></span>
+                </div>
+                {% endif %}
               </div>
               <div class="calendar"></div>
             </div>

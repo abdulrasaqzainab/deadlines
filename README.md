@@ -7,8 +7,25 @@ Countdowns to AI/ML/DS conference/workshop/event deadlines on the African contin
 To add or update information:
 - Fork the repository
 - Update `_data/conferences.yml`
-- Make sure it has the `title`, `year`, `id`, `link`, `deadline`, `timezone`, `date`, `place`, `sub` attributes
-    + See available timezone strings [here](https://momentjs.com/timezone/).
+- Make sure it has the following required attributes:
+    + `title`: Short name of the conference
+    + `year`: Year the conference is happening
+    + `id`: Unique identifier for the conference
+    + `link`: URL to the conference website
+    + `deadline`: Submission deadline in format YYYY-MM-DD HH:MM:SS
+    + `timezone`: Timezone for the deadline (see available timezone strings [here](https://momentjs.com/timezone/))
+    + `date`: When the conference is happening (e.g., Feb 7-12, 2023)
+    + `place`: Location of the conference
+    + `sub`: Subject areas/tracks (array)
+- Optional attributes (newly added):
+    + `full_name`: Full name of the conference
+    + `start`: Start date of the conference in format YYYY-MM-DD
+    + `end`: End date of the conference in format YYYY-MM-DD
+    + `abstract_deadline`: Abstract submission deadline (if different from paper deadline)
+    + `hindex`: H-index of the conference
+    + `paperslink`: Link to the conference papers
+    + `pwclink`: Link to the conference on PapersWithCode
+    + `note`: Any additional notes
 - Send a pull request
 
 ## Original Repo
