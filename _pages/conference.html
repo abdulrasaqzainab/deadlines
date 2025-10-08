@@ -35,18 +35,39 @@ permalink:  /conference/
                 </div>
                 <div class="meta deadline col-xs-12">
                   <div id="conf-fullname" class="conf-fullname"></div>
-                  <span id="conf-date"></span>. <span id="conf-place"></span>.<br>
-                  <div id="conf-dates" class="conf-dates small" style="display:none;">
-                    Start: <span id="conf-start"></span>. End: <span id="conf-end"></span>.<br>
+                  
+                  <div class="conf-meta-line">
+                    <span id="conf-date"></span>.
                   </div>
-                  <div id="conf-hindex" class="conf-hindex small" style="display:none;">
-                    H-index: <span id="hindex-value"></span><br>
+                  
+                  <div class="conf-location">
+                    <i>📍</i>
+                    <span id="conf-place"></span>
                   </div>
-                  Deadline: <span class="deadline-time"></span><br>
-                  <div id="abstract-deadline" class="abstract-deadline small" style="display:none;">
-                    Abstract Deadline: <span id="abstract-deadline-time"></span><br>
+                  
+                  <div class="conf-meta-details">
+                    <div id="conf-dates" class="conf-dates small" style="display:none;">
+                      Start: <span id="conf-start"></span>. End: <span id="conf-end"></span>.
+                    </div>
+                    
+                    <div id="conf-hindex" class="conf-hindex small" style="display:none;">
+                      H-index: <strong id="hindex-value"></strong>
+                    </div>
                   </div>
-                  Website: <a id="conf-website" target="_blank" nohref></a><br>
+                  
+                  <div class="deadline-container">
+                    <div class="deadline">
+                      <div><strong>Deadline:</strong> <span class="deadline-time"></span></div>
+                      <div id="abstract-deadline" class="abstract-deadline small" style="display:none;">
+                        Abstract Deadline: <span id="abstract-deadline-time"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mt-3">
+                    <strong>Website:</strong> <a id="conf-website" target="_blank" nohref></a>
+                  </div>
+                  
                   <div id="conf-additional-links" class="conf-links small" style="display:none;">
                     <span id="papers-link" style="display:none;">
                       <a id="papers-link-href" target="_blank" nohref>Papers</a>
@@ -62,7 +83,9 @@ permalink:  /conference/
         <div>
           <div class="row">
               <div class="col-xs-12">
-                <span id="conf-timer"></span>
+                <div class="text-center">
+                  <span id="conf-timer" class="mt-3 mb-3"></span>
+                </div>
                 <br>
               </div>
           </div>

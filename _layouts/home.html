@@ -60,8 +60,9 @@
               </div>
             </div>
         </div>
+        <div id="conferences">
         {% for conf in site.data.conferences %}
-        <div id="{{conf.id}}" class="{% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
+        <div id="{{conf.id}}" class="conference-item {% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
           <div class="row conf-row">
               <div class="col-xs-5 col-sm-6">
                   <a class="conf-title" href="/conference?id={{ conf.id }}">{{conf.title}} {{conf.year}}</a>
@@ -69,32 +70,41 @@
                   <div class="conf-fullname small">{{conf.full_name}}</div>
                   {% endif %}
               </div>
-              <div class="col-xs-7 col-sm-6">
+              <div class="col-xs-7 col-sm-6 text-right">
                 <span class="timer"></span>
               </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-6">
               <div class="meta">
-                <span class="conf-date">{{conf.date}}.</span>
-                <span class="conf-place">
-                  <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>.
-                </span>
-                {% if conf.start and conf.end %}
-                <div class="conf-dates small">
-                  <span class="conf-start">Start: {{conf.start}}.</span>
-                  <span class="conf-end">End: {{conf.end}}.</span>
+                <div class="conf-meta-line">
+                  <span class="conf-date">{{conf.date}}.</span>
                 </div>
-                {% endif %}
-                {% if conf.hindex %}
-                <div class="conf-hindex small">H-index: <strong>{{conf.hindex}}</strong></div>
-                {% endif %}
+                <div class="conf-location">
+                  <i>📍</i>
+                  <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>
+                </div>
+                
+                <div class="conf-meta-details">
+                  {% if conf.start and conf.end %}
+                  <div class="conf-dates small">
+                    <span class="conf-start">Start: {{conf.start}}.</span>
+                    <span class="conf-end">End: {{conf.end}}.</span>
+                  </div>
+                  {% endif %}
+                  
+                  {% if conf.hindex %}
+                  <div class="conf-hindex small">H-index: <strong>{{conf.hindex}}</strong></div>
+                  {% endif %}
+                </div>
               </div>
+              
               {% if conf.note %}
               <div class="note">
                 {{conf.note}}
               </div>
               {% endif %}
+              
               {% if conf.paperslink or conf.pwclink %}
               <div class="conf-links small">
                 {% if conf.paperslink %}
@@ -107,20 +117,24 @@
               </div>
               {% endif %}
             </div>
+            
             <div class="col-xs-12 col-sm-6">
-              <div class="deadline">
-                <div>Deadline:
-                  <span class="deadline-time"></span>
+              <div class="deadline-container">
+                <div class="deadline">
+                  <div><strong>Deadline:</strong>
+                    <span class="deadline-time"></span>
+                  </div>
+                  {% if conf.abstract_deadline %}
+                  <div class="abstract-deadline small">
+                    Abstract Deadline: <span class="abstract-deadline-time" data-deadline="{{conf.abstract_deadline}}"></span>
+                  </div>
+                  {% endif %}
+                  <div class="calendar mt-2"></div>
                 </div>
-                {% if conf.abstract_deadline %}
-                <div class="abstract-deadline small">
-                  Abstract Deadline: <span class="abstract-deadline-time" data-deadline="{{conf.abstract_deadline}}"></span>
-                </div>
-                {% endif %}
               </div>
-              <div class="calendar"></div>
             </div>
           </div>
+          
           <div class="row">
             <div class="col-xs-12">
               <span title="Click to only show {{conf.sub}} conferences" data-sub="{{conf.sub}}" class="conf-sub"></span>
@@ -129,6 +143,7 @@
           <hr>
         </div>
         {% endfor %}
+        </div>
         <footer>
           <a href="/">{{ site.domain }}</a> is maintained by <a href="https://dsfsi.github.io">Data Science for Social Impact @ UP</a>.<br>
 Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/mlds-africa">Mailing List</a>.        

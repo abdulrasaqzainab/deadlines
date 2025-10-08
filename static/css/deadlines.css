@@ -2,52 +2,79 @@ body {
   font-size: 16px;
   line-height: 23px;
   font-weight: 300;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  padding-bottom: 30px;
 }
 
 body *::selection {
-  background: #e74c3c;
+  background: #0097e6;
   color: #fff;
 }
 
 .container {
   max-width: 980px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .top-strip {
-  background-color: #333;
-  height: 0.25em;
+  background-color: #0097e6;
+  background-image: linear-gradient(to right, #0097e6, #00a8ff);
+  height: 0.35em;
   width: 100%;
-}
-
-h1,h2,h3 {
-  /* font-weight: 300; */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 h1 {
   margin: 0 0 10px;
   font-size: 30px;
   line-height: 35px;
+  font-weight: 600;
+  color: #333;
 }
 
 h2 {
   margin: 0 0 10px;
   font-size: 25px;
   line-height: 30px;
+  font-weight: 500;
+  color: #444;
 }
 
 h3 {
   margin: 0;
   font-size: 20px;
   line-height: 25px;
+  font-weight: 500;
+  color: #555;
 }
 
 .page-header {
-  margin-top: 20px;
+  margin-top: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #f0f0f0;
 }
 
 #conf-title.page-header {
-  border-bottom: none;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
 }
 
 p.authors {
@@ -71,7 +98,8 @@ p {
 a {
   text-decoration: none;
   border-bottom: 1px solid #ccc;
-  color: inherit;
+  color: #0097e6;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 p.lead.authors a {
@@ -79,7 +107,8 @@ p.lead.authors a {
 }
 
 a:hover, a:focus {
-  color: inherit;
+  color: #00a8ff;
+  border-color: #00a8ff;
   text-decoration: none;
 }
 
@@ -96,10 +125,28 @@ pre {
 
 footer {
   font-size: 13px;
+  margin-top: 30px;
+  padding: 15px 10px;
+  border-top: 1px solid #eee;
+  color: #666;
+  line-height: 1.6;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+footer a {
+  color: #0097e6;
+  font-weight: 500;
 }
 
 .past {
-  opacity: 0.5;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.past:hover {
+  opacity: 0.9;
 }
 
 .conf-row {
@@ -108,35 +155,67 @@ footer {
 
 .conf-title {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
+  color: #0097e6;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  padding-bottom: 2px;
+}
+
+.conf-title:hover {
+  border-color: #0097e6;
+  color: #00a8ff;
+  text-decoration: none;
 }
 
 .deadline, .meta {
   font-size: 13px;
+  line-height: 1.6;
+  color: #555;
 }
 
 .note {
   font-size: 13px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  padding: 5px 8px;
+  background-color: #f8f9fa;
+  border-left: 3px solid #0097e6;
+  border-radius: 0 3px 3px 0;
 }
 
 .timer {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
+  color: #444;
 }
 
 #conf-timer {
   font-size: 72px;
-  color: #444;
+  color: #0097e6;
+  font-weight: 500;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f1f8fe;
+  border-radius: 5px;
+  margin-top: 15px;
 }
 
 .conf-sub {
-  color: rgb(36, 101, 191);
-  background: rgba(236, 240, 241, 0.7);
+  color: #0097e6;
+  background: #f1f8fe;
   font-size: 13px;
-  padding: 3px 5px;
+  padding: 4px 8px;
   cursor: pointer;
-  font-weight: 300;
+  font-weight: 400;
+  border-radius: 3px;
+  display: inline-block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.conf-sub:hover {
+  background: #e1f0fd;
+  color: #0076b3;
 }
 
 .conf-sub::selection {
@@ -155,9 +234,25 @@ footer {
 @media only screen and (max-width: 780px) {
   #conf-timer {
     font-size: 64px;
+    padding: 8px 15px;
   }
+  
   .calendar {
     margin-bottom: 10px;
+  }
+  
+  .container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .conference-item {
+    padding: 10px 8px;
+  }
+  
+  .page-header {
+    padding: 15px;
+    margin-top: 15px;
   }
 }
 
@@ -165,43 +260,85 @@ footer {
   #conf-timer {
     font-size: 36px;
   }
-  .conf-place {
-    display: none;
+  
+  h1 {
+    font-size: 24px;
+    line-height: 28px;
   }
-  .conf-date {
-    display: none;
+  
+  /* Improve visibility on mobile - show place and date but style differently */
+  .conf-place, .conf-date {
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 5px;
   }
+  
   .note {
-    display: none;
+    padding: 3px 5px;
+    font-size: 11px;
+    margin-bottom: 5px;
   }
+  
   .conf-row {
     margin-bottom: 7px;
   }
   
-  /* Responsive styles for new fields */
+  /* Enhanced responsive styles for new fields */
   .conf-dates, .conf-hindex {
     font-size: 11px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+    padding: 2px 4px;
+    display: inline-block;
+    width: auto;
   }
   
   .abstract-deadline {
     font-size: 11px;
+    padding-left: 2px;
   }
   
   .conf-fullname {
     font-size: 12px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    line-height: 1.3;
   }
   
   .conf-links {
-    margin-top: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 11px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .conf-links a {
+    margin-right: 8px;
+    margin-bottom: 3px;
+  }
+  
+  /* Improve timer visibility */
+  .timer {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Make conference title stand out more */
+  .conf-title {
+    font-size: 18px;
   }
 }
 
 @media only screen and (max-width: 375px) {
   #conf-timer {
-    font-size: 28px;
+    font-size: 30px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  
+  .conf-sub {
+    padding: 2px 5px;
+    font-size: 11px;
+    margin-top: 3px;
   }
 }
 
@@ -211,7 +348,7 @@ footer {
 
 .calendar {
   font-size: 12px;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .calendar img {
@@ -226,40 +363,121 @@ footer {
   height: 20px;
 }
 
+/* Conference divider styling */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 151, 230, 0.2), rgba(0, 0, 0, 0));
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Add space between conferences */
+#conferences > div {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
 /* Styles for new fields */
+.conference-item {
+  padding: 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.conference-item:hover {
+  background-color: #f8f9fa;
+  border: 1px solid #e1f0fd;
+  box-shadow: 0 3px 6px rgba(0,151,230,0.05);
+  transform: translateY(-1px);
+}
+
 .conf-fullname {
   font-size: 14px;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.conf-dates {
-  color: #555;
-  margin-top: 3px;
-  margin-bottom: 3px;
-}
-
-.conf-hindex {
-  color: #555;
-  font-weight: 500;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  display: inline-block;
-  padding-right: 8px;
-}
-
-.abstract-deadline {
-  color: #555;
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.4;
   font-style: italic;
 }
 
-.conf-links {
+.conf-meta-line {
+  margin-bottom: 5px;
+}
+
+.conf-meta-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.conf-dates {
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background-color: #f8f9fa;
+  padding: 3px 6px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.conf-hindex {
+  color: #444;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #f1f8fe;
+  border-radius: 3px;
+  border-left: 2px solid #0097e6;
+}
+
+.conf-hindex strong {
+  color: #0097e6;
+  font-weight: 600;
+}
+
+.conf-location {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
   margin-top: 5px;
+}
+
+.conf-location i {
+  margin-right: 5px;
+  color: #888;
+}
+
+.abstract-deadline {
+  color: #666;
+  font-style: italic;
+  margin-top: 4px;
+  padding-left: 3px;
+  border-left: 2px solid #0097e6;
+}
+
+.deadline-container {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border-left: 3px solid #0097e6;
+}
+
+.conf-links {
+  margin-top: 12px;
+  margin-bottom: 5px;
 }
 
 .conf-links a {
   color: #0097e6;
   border-bottom: 1px dotted #0097e6;
+  margin-right: 10px;
+  padding: 2px 0;
+  font-weight: 500;
 }
 
 .conf-links a:hover {
