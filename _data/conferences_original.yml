@@ -2,185 +2,93 @@
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2025
   id: SACAIR2025
-  full_name: Southern African Conference for Artificial Intelligence Research
   link: https://2025.sacair.org.za
   deadline: "2025-08-03 23:59:59"
   timezone: GMT+2
   date: December 1 - December 5, 2025
-  start: 2025-12-01
-  end: 2025-12-05
   place: Cape Town, South Africa
   sub: CON
-  hindex: 15
-  note: Premier AI conference in Southern Africa focusing on AI research and applications
 - title: Building Sustainable AI-Driven Digital Transformation Infrastructures for African Economies
   year: 2025
   id: MIRG-ICAIR2025
-  full_name: MIRG International Conference on AI Research
   link: https://easychair.org/cfp/MIRG-ICAIR2025
   deadline: "2025-07-21 23:59:59"
   timezone: GMT+1
   date: November 4 - November 6, 2025
-  start: 2025-11-04
-  end: 2025-11-06
   place: Lagos, Nigeria
   sub: CON
-  note: Focus on sustainable AI infrastructure for African economic development
 - title: Digital Humanities Association of Southern Africa
   year: 2025
   id: DHASA2025
-  full_name: Digital Humanities Association of Southern Africa Conference
   link: https://dh2025.digitalhumanities.org.za
   deadline: "2025-07-14 23:59:59"
   timezone: GMT+2
   date: 10 November 2025 - 14 November 2025
-  start: 2025-11-10
-  end: 2025-11-14
   place: CSIR ICC, Pretoria , South Africa
   sub: WP
-  note: Promoting digital humanities research and collaboration across Southern Africa
 - title: 6th Workshop on Resources for African Indigenous Languages
   year: 2025
   id: RAIL2025
-  full_name: Workshop on Resources for African Indigenous Languages
   link: https://sadilar.org/rail-2025/
   deadline: "2025-07-14 23:59:59"
   timezone: GMT+2
   date: 10 November 2025
-  start: 2025-11-10
-  end: 2025-11-10
   place: CSIR ICC, Pretoria , South Africa
   sub: WP
-  note: Workshop focused on developing resources for African indigenous languages
 - title: Pan-African Artificial Intelligence and Smart Systems Conference
   year: 2025
   id: PAAISS2025
-  full_name: Pan-African Artificial Intelligence and Smart Systems Conference
   link: https://paaiss.com
   deadline: "2025-07-02 23:59:59"
   timezone: GMT
   date: October 15 - October 17, 2025
-  start: 2025-10-15
-  end: 2025-10-17
   place: Kumasi, Ghana
   sub: CON
-  hindex: 12
-  note: Promoting AI and smart systems research across the African continent
 - title: Deep Learning Indaba
   year: 2025
   id: DLI2025
-  full_name: Deep Learning Indaba
   link: https://deeplearningindaba.com/2025/publications/
   deadline: "2025-05-20 23:59:59"
-  abstract_deadline: "2025-05-15 23:59:59"
-  timezone: GMT+2
+  timezone: UTC-12
   date: Aug 17 - Aug 22, 2025
-  start: 2025-08-17
-  end: 2025-08-22
   place: Kigali, Rwanda
   sub: CON
-  hindex: 25
-  note: Africa's premier machine learning conference bringing together the brightest minds on the continent
-  paperslink: https://deeplearningindaba.com/papers/
 - title: Data Science Africa
   year: 2025
   id: DSA2025
-  full_name: Data Science Africa Annual Conference
   link: https://www.datascienceafrica.org/dsa2025ibadan/2025/03/14/Workshop.html
   deadline: "2025-04-25 23:59:59"
-  timezone: GMT+1
+  timezone: GMT+2
   date: June 2 - 6, 2025
-  start: 2025-06-02
-  end: 2025-06-06
   place: Ibadan, Nigeria
   sub: WP
-  hindex: 10
-  note: Building local capacity in data science and machine learning across Africa
 - title: African Computer Vision Summer School (ACVSS)
   year: 2025
   id: ACVSS2025
-  full_name: African Computer Vision Summer School
   link: https://www.acvss.ai/Attend
   deadline: "2025-03-25 23:59:59"
-  timezone: GMT+2
+  timezone: UTC-12
   date: Jul 13 - Jul 23, 2025
-  start: 2025-07-13
-  end: 2025-07-23
   place: Kigali, Rwanda
   sub: WP
-  hindex: 8
-  note: Building computer vision capacity across Africa through intensive training and research
 - title: AfricaNLP Workshop
   year: 2025
   id: AfricaNLP2025
-  full_name: Workshop on African Natural Language Processing
   link: https://sites.google.com/view/africanlp2025/home
   deadline: "2025-03-10 23:59:59"
-  timezone: GMT+1
+  timezone: UTC-12
   date: 31 Aug or 1 Sep 2025
   place: Vienna, Austria
   sub: WP
-  hindex: 12
-  note: Part of IJCNLP-AACL 2025, focusing on NLP for African languages
 - title: 5th African Human Computer Interaction Conference
   year: 2025
   id: AfriCHI2025
-  full_name: African Conference on Human Computer Interaction
   link: https://www.africhi2025.org
   deadline: "2025-01-31 23:59:59"
   timezone: GMT+2
   date: Nov 1 - Nov 6, 2025
-  start: 2025-11-01
-  end: 2025-11-06
   place: Cairo, Egypt
   sub: CON
-  hindex: 18
-  note: Premier HCI conference in Africa focusing on user experience and interface design
-- title: NeurIPS
-  year: 2025
-  id: neurips25
-  full_name: Conference on Neural Information Processing Systems
-  link: https://nips.cc/
-  deadline: "2025-05-22 19:59:59"
-  abstract_deadline: "2025-05-15 19:59:59"
-  timezone: UTC
-  date: December 8 - December 14, 2025
-  start: 2025-12-08
-  end: 2025-12-14
-  place: TBD
-  sub: ML
-  hindex: 309
-  note: One of the premier machine learning conferences globally. Mandatory abstract deadline on May 15, 2025
-  paperslink: https://proceedings.neurips.cc/
-- title: ICML
-  year: 2025
-  id: icml25
-  full_name: International Conference on Machine Learning
-  link: https://icml.cc/
-  deadline: "2025-02-01 23:59:59"
-  timezone: UTC-12
-  date: July 20-26, 2025
-  start: 2025-07-20
-  end: 2025-07-26
-  place: TBD
-  sub: ML
-  hindex: 254
-  note: Top-tier machine learning conference with rigorous peer review
-- title: IJCAI
-  year: 2025
-  id: ijcai25
-  full_name: International Joint Conference on Artificial Intelligence
-  link: https://ijcai-25.org/
-  deadline: "2025-01-16 23:59:59"
-  abstract_deadline: "2025-01-10 23:59:59"
-  timezone: UTC-12
-  date: August 9-15, 2025
-  start: 2025-08-09
-  end: 2025-08-15
-  place: TBD
-  sub: ['ML', 'KR', 'NLP', 'CV', 'RO']
-  hindex: 145
-  note: Premier international AI conference. Abstract deadline on January 10, 2025
 - title: IST-Africa
   year: 2025
   id: IST-Africa2025
@@ -193,17 +101,12 @@
 - title: Southern African Conference for Artificial Intelligence Research
   year: 2024
   id: SACAIR2024
-  full_name: Southern African Conference for Artificial Intelligence Research
   link: https://2024.sacair.org.za/
   deadline: "2024-08-04 23:59:59"
   timezone: GMT+2
   date: December 2-December 6, 2024
-  start: 2024-12-02
-  end: 2024-12-06
   place: University of the Free State, Bloemfontein
   sub: CON
-  hindex: 15
-  note: Premier AI conference in Southern Africa focusing on AI research and applications
 - title: Data Science Africa
   year: 2024
   id: DSA2024
@@ -216,17 +119,12 @@
 - title: Deep Learning Indaba
   year: 2024
   id: DLI2024
-  full_name: Deep Learning Indaba
   link: https://deeplearningindaba.com/2024/
   deadline: "2024-03-21 23:59:59"
   timezone: GMT+2
   date: Sep 1 - 7 Sep, 2024
-  start: 2024-09-01
-  end: 2024-09-07
   place: Dakar, Senegal
   sub: WP
-  hindex: 25
-  note: Africa's premier machine learning conference bringing together the brightest minds on the continent
 - title: African Computer Vision Summer School
   year: 2024
   id: ACVSS2024
