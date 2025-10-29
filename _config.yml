@@ -13,6 +13,7 @@ baseurl: ""
 
 # GitHub Pages will automatically set baseurl to "/deadlines" when serving from github.io
 # The relative_url filter handles both cases automatically
+# Force rebuild: 2025-10-29-v2
 
 twitter_username: 
 twitter_hashtag: africanmachinelearning
