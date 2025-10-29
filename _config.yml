@@ -26,10 +26,10 @@ kramdown:
   syntax_highlighter: rouge
 ga_id: UA-137561504-1
 
-include: ['_pages', 'assets']
+include: ['_pages', 'static']
 
-# Ensure assets are not processed as Jekyll templates
-keep_files: ['assets']
+# Ensure static files are not processed as Jekyll templates
+keep_files: ['static']
 
 # Plugin configuration
 plugins:
