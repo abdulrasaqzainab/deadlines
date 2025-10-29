@@ -222,9 +222,9 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         {% if conf.deadline == "TBA" %}
           $('#{{conf.id}} .timer').html("TBA");
           $('#{{conf.id}} .deadline-time').html("TBA");
-        {% else %}
+        {% elsif conf.deadline %}
           // adjust date according to deadline timezone
-          var timezone = getSafeTimezone("{{conf.timezone}}");
+          var timezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
           var confDate = moment.tz("{{conf.deadline}}", timezone);
 
           // render countdown timer
@@ -238,16 +238,21 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
             $('#{{conf.id}} .deadline-time').html(localConfDate.toString());
           }
           catch(err) {
-            console.log("Error converting to local timezone.");
+            console.log("Error converting to local timezone for {{conf.id}}:", err);
             $('#{{conf.id}} .deadline-time').html(confDate.toString());
           }
           
           // handle abstract deadline if available
           {% if conf.abstract_deadline %}
-          var abstractTimezone = getSafeTimezone("{{conf.timezone}}");
+          var abstractTimezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
           var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
           $('#{{conf.id}} .abstract-deadline-time').html(abstractDate.toString());
           {% endif %}
+        {% else %}
+          // No deadline available
+          $('#{{conf.id}} .timer').html("TBA");
+          $('#{{conf.id}} .deadline-time').html("TBA");
+        {% endif %}
 
           // add calendar button
           var myCalendar = createCalendar({
