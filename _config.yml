@@ -12,6 +12,10 @@ github_username: dsfsi
 github_repo: deadlines
 
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 ga_id: UA-137561504-1
 
 include: ['_pages', 'assets']
