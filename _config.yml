@@ -6,14 +6,11 @@ author: Mpho Mokoatle, Avashlin Moodley, Vukosi Marivate
 domain: "mldsafrica.co.za"
 
 # GitHub Pages and custom domain configuration
-# For custom domain (mldsafrica.co.za): url should be the custom domain, baseurl should be empty
-# For GitHub Pages (abdulrasaqzainab.github.io/deadlines): Jekyll will auto-detect the repo name
-url: "https://mldsafrica.co.za"
-baseurl: ""
+# Setting baseurl for GitHub Pages deployment
+url: "https://abdulrasaqzainab.github.io"
+baseurl: "/deadlines"
 
-# GitHub Pages will automatically set baseurl to "/deadlines" when serving from github.io
-# The relative_url filter handles both cases automatically
-# Force rebuild: 2025-10-29-v2
+# Force rebuild: 2025-10-29-v3
 
 twitter_username: 
 twitter_hashtag: africanmachinelearning
