@@ -32,13 +32,8 @@
                       <select
                         id="subject-select"
                         name="subject-select"
-                        multiple
-                        data-live-search="true"
-                        data-actions-box="true"
-                        data-selected-text-format="count > 2"
-                        data-count-selected-text="{0} subjects selected"
-                        class="form-control"
-                        title="Choose subjects..."
+                        multiple="multiple"
+                        style="display: none"
                       >
                         {% for type in site.data.types %}
                         <option value="{{type.sub}}" id="{{type.sub}}-checkbox">
@@ -68,7 +63,7 @@
         <div id="conferences">
           <div id="coming_confs">
             {% for conf in site.data.conferences %}
-            <div id="{{conf.id}}" class="conference-item {{conf.sub}}-conf">
+            <div id="{{conf.id}}" class="conference-item {% for sub in conf.sub %} {{sub}}-conf {% endfor %}">
               <div class="row conf-row">
                   <div class="col-xs-5 col-sm-6">
                       <a class="conf-title" href="/conference?id={{ conf.id }}">{{conf.title}} {{conf.year}}</a>
@@ -230,56 +225,51 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         {% elsif conf.deadline %}
           // adjust date according to deadline timezone
           var timezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
-          var deadlineStr = "{{conf.deadline}}";
-          
-          console.log("Processing {{conf.id}}: deadline=" + deadlineStr + ", timezone=" + timezone);
-          
-          var confDate = moment.tz(deadlineStr, timezone);
-          
-          if (!confDate.isValid()) {
-            console.error("Invalid date for {{conf.id}}: " + deadlineStr);
-            $('#{{conf.id}} .timer').html("Invalid date");
-            $('#{{conf.id}} .deadline-time').html("Invalid date");
-          } else {
-            // render countdown timer
-            $('#{{conf.id}} .timer').countdown(confDate.toDate(), function(event) {
-              $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
-            });
-            
-            // convert deadline to local timezone
-            try {
-              var localConfDate = moment.tz(confDate, local_timezone);
-              $('#{{conf.id}} .deadline-time').html(localConfDate.format('MMMM Do YYYY, h:mm:ss a z'));
-            }
-            catch(err) {
-              console.log("Error converting to local timezone for {{conf.id}}:", err);
-              $('#{{conf.id}} .deadline-time').html(confDate.format('MMMM Do YYYY, h:mm:ss a z'));
-            }
-            
-            // handle abstract deadline if available
-            {% if conf.abstract_deadline %}
-            var abstractTimezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
-            var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
-            if (abstractDate.isValid()) {
-              $('#{{conf.id}} .abstract-deadline-time').html(abstractDate.format('MMMM Do YYYY, h:mm:ss a z'));
-            }
-            {% endif %}
+          var confDate = moment.tz("{{conf.deadline}}", timezone);
 
-            // add calendar button
-            var myCalendar = createCalendar({
-              options: {
-                class: 'calendar-obj',
-                id: '{{conf.id}}'
-              },
-              data: {
-                title: '{{conf.title}} {{conf.year}} deadline',
-                start: confDate.toDate(),
-                duration: 60,
-              }
-            });
-            document.querySelector('#{{conf.id}} .calendar').appendChild(myCalendar);
+          // render countdown timer
+          $('#{{conf.id}} .timer').countdown(confDate.toDate(), function(event) {
+            $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
+          });
+          
+          // convert deadline to local timezone
+          try {
+            var localConfDate = moment.tz(confDate, local_timezone);
+            $('#{{conf.id}} .deadline-time').html(localConfDate.toString());
           }
-          $('#{{conf.id}} .conf-sub').html(sub2name["{{conf.sub}}"] ? sub2name["{{conf.sub}}"].toLowerCase() : "{{conf.sub}}");
+          catch(err) {
+            console.log("Error converting to local timezone for {{conf.id}}:", err);
+            $('#{{conf.id}} .deadline-time').html(confDate.toString());
+          }
+          
+          // handle abstract deadline if available
+          {% if conf.abstract_deadline %}
+          var abstractTimezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
+          var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
+          $('#{{conf.id}} .abstract-deadline-time').html(abstractDate.toString());
+          {% endif %}
+
+          // add calendar button
+          var myCalendar = createCalendar({
+            options: {
+              class: 'calendar-obj',
+
+              // You can pass an ID. If you don't, one will be generated for you
+              id: '{{conf.id}}'
+            },
+            data: {
+              // Event title
+              title: '{{conf.title}} {{conf.year}} deadline',
+
+              // Event start date
+              start: confDate.toDate(), // new Date('June 15, 2013 19:00'),
+
+              // Event duration
+              duration: 60,
+            }
+          });
+          document.querySelector('#{{conf.id}} .calendar').appendChild(myCalendar);
+          $('#{{conf.id}} .conf-sub').html(sub2name["{{conf.sub}}"].toLocaleLowerCase());
 
           // check if date has passed, add 'past' class to it
           var today = moment();
@@ -318,22 +308,26 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
           }
         });
 
-        // Initialize bootstrap-select dropdown
-        $("#subject-select").selectpicker({
-          actionsBox: true,
-          selectedTextFormat: 'count > 2',
-          countSelectedText: '{0} subjects selected',
-          liveSearch: true,
-          title: 'Choose subjects...',
-          selectAllText: 'Select All',
-          deselectAllText: 'Deselect All'
-        });
-
-        // Handle selection changes
-        $("#subject-select").on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-          var selectedSubs = $("#subject-select").val();
-          if (!selectedSubs) selectedSubs = [];
-          update_filtering({ subs: selectedSubs, all_subs: all_subs });
+        // Initialize multiselect dropdown
+        $("#subject-select").multiselect({
+          includeSelectAllOption: true,
+          numberDisplayed: 2,
+          buttonWidth: '100%',
+          maxHeight: 400,
+          enableFiltering: true,
+          enableCaseInsensitiveFiltering: true,
+          filterPlaceholder: 'Search subjects...',
+          onChange: function(option, checked, select) {
+            var selectedSubs = $("#subject-select").val();
+            if (!selectedSubs) selectedSubs = [];
+            update_filtering({ subs: selectedSubs, all_subs: all_subs });
+          },
+          onSelectAll: function() {
+            update_filtering({ subs: all_subs, all_subs: all_subs });
+          },
+          onDeselectAll: function() {
+            update_filtering({ subs: [], all_subs: all_subs });
+          }
         });
 
         // Helper function to update filtering
@@ -371,10 +365,10 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         // Get subjects from browser cache
         if (subs === undefined) {
           subs = all_subs;
-          $("#subject-select").selectpicker('selectAll');
+          $("#subject-select").multiselect('selectAll', false);
         } else {
-          $("#subject-select").selectpicker('deselectAll');
-          $("#subject-select").selectpicker('val', subs);
+          $("#subject-select").multiselect('deselectAll', false);
+          $("#subject-select").multiselect('select', subs, false);
         }
         
         // Apply initial filtering
@@ -383,8 +377,8 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         // Event handler on sub badge click
         $('.conf-sub').click(function (e) {
             var csub = $(this).data('sub');
-            $("#subject-select").selectpicker('deselectAll');
-            $("#subject-select").selectpicker('val', [csub]);
+            $("#subject-select").multiselect('deselectAll', false);
+            $("#subject-select").multiselect('select', [csub], false);
             update_filtering({ subs: [csub], all_subs: all_subs });
         });
     });
