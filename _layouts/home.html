@@ -248,11 +248,6 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
           var abstractDate = moment.tz("{{conf.abstract_deadline}}", abstractTimezone);
           $('#{{conf.id}} .abstract-deadline-time').html(abstractDate.toString());
           {% endif %}
-        {% else %}
-          // No deadline available
-          $('#{{conf.id}} .timer').html("TBA");
-          $('#{{conf.id}} .deadline-time').html("TBA");
-        {% endif %}
 
           // add calendar button
           var myCalendar = createCalendar({
@@ -289,6 +284,10 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
             $('#past-events-title').show();
             $('#sort-order-checkbox').show();
           }
+        {% else %}
+          // No deadline available
+          $('#{{conf.id}} .timer').html("TBA");
+          $('#{{conf.id}} .deadline-time').html("TBA");
         {% endif %}
         {% endfor %}
 
