@@ -14,4 +14,4 @@ github_repo: deadlines
 markdown: kramdown
 ga_id: UA-137561504-1
 
-include: ['_pages', 'static']
+include: ['_pages', 'assets']
