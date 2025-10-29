@@ -15,3 +15,10 @@ markdown: kramdown
 ga_id: UA-137561504-1
 
 include: ['_pages', 'assets']
+
+# Ensure assets are not processed as Jekyll templates
+keep_files: ['assets']
+
+# Plugin configuration
+plugins:
+  - jekyll-sitemap
