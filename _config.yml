@@ -26,10 +26,29 @@ kramdown:
   syntax_highlighter: rouge
 ga_id: UA-137561504-1
 
-include: ['_pages', 'static']
+# Jekyll will automatically include assets directory
+# But we'll be explicit about what to include and exclude
+include: ['_pages']
 
-# Ensure static files are not processed as Jekyll templates
-keep_files: ['static']
+# Exclude files/directories not needed in the final site
+exclude: 
+  - 'static'
+  - 'utils'
+  - 'venv'
+  - '.qodo'
+  - 'pr7_repo'
+  - 'check_deadlines.py'
+  - 'find_missing_deadlines.sh'
+  - 'test.html'
+  - 'Gemfile*'
+  - '.travis.yml'
+
+# Ensure assets are properly handled
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
 
 # Plugin configuration
 plugins:
