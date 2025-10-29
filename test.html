@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DSFSI Deadlines Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/deadlines.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/js-year-calendar.min.css">
+    
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.countdown.min.js"></script>
+    <script src="/static/js/moment.min.js"></script>
+    <script src="/static/js/moment-timezone-with-data.min.js"></script>
+    <script src="/static/js/store.min.js"></script>
+    <script src="/static/js/ouical.min.js"></script>
+    <script src="/static/js/js-year-calendar.js"></script>
+</head>
+<body>
+    <div class="top-strip"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1>DSFSI AI Deadlines - Test Page</h1>
+            <p>Testing new features from PR #7 integration</p>
+        </div>
+        
+        <!-- Feature Tests -->
+        <div class="row">
+            <div class="col-12">
+                <h2>Feature Tests</h2>
+                
+                <!-- Multi-select Test -->
+                <div class="feature-test">
+                    <h3>1. Multi-select Dropdown</h3>
+                    <select id="test-multiselect" multiple="multiple">
+                        <option value="CON">Conference</option>
+                        <option value="WP">Workshop</option>
+                        <option value="ML">Machine Learning</option>
+                        <option value="NLP">Natural Language Processing</option>
+                    </select>
+                </div>
+                
+                <!-- Timezone Detection Test -->
+                <div class="feature-test">
+                    <h3>2. Local Timezone Detection</h3>
+                    <div class="local-timezone-hide">
+                        Deadlines are shown in <span class="local-timezone">America/New_York</span> time.
+                    </div>
+                </div>
+                
+                <!-- Sample Conference with New Fields -->
+                <div class="feature-test">
+                    <h3>3. Enhanced Conference Display</h3>
+                    <div class="conference-item">
+                        <div class="row conf-row">
+                            <div class="col-6">
+                                <a class="conf-title" href="#">SACAIR 2025</a>
+                                <div class="conf-fullname small">Southern African Conference for Artificial Intelligence Research</div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <span class="timer" id="test-timer">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="meta">
+                                    <div class="conf-meta-line">
+                                        <span class="conf-date">December 1 - December 5, 2025.</span>
+                                    </div>
+                                    <div class="conf-location">
+                                        <i>📍</i>
+                                        <a href="http://maps.google.com/?q=Cape Town, South Africa">Cape Town, South Africa</a>
+                                    </div>
+                                    
+                                    <div class="conf-meta-details">
+                                        <div class="conf-dates small">
+                                            <span class="conf-start">Start: 2025-12-01.</span>
+                                            <span class="conf-end">End: 2025-12-05.</span>
+                                        </div>
+                                        <div class="conf-hindex small">H-index: <strong>15</strong></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="note">
+                                    Premier AI conference in Southern Africa focusing on AI research and applications
+                                </div>
+                                
+                                <div class="conf-links small">
+                                    <a href="#" target="_blank">Papers</a> | 
+                                    <a href="#" target="_blank">PWC</a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6">
+                                <div class="deadline-container">
+                                    <div class="deadline">
+                                        <div><strong>Deadline:</strong>
+                                            <span class="deadline-time" id="test-deadline">Loading...</span>
+                                        </div>
+                                        <div class="abstract-deadline small">
+                                            Abstract Deadline: <span id="test-abstract-deadline">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="conf-sub" data-sub="CON">conference</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Icons Test -->
+                <div class="feature-test">
+                    <h3>4. SVG Icons</h3>
+                    <p>
+                        <img src="/static/img/033-books.svg" class="badge-link" alt="Books"> Books
+                        <img src="/static/img/203-earth.svg" class="badge-link" alt="Earth"> Earth
+                        <img src="/static/img/084-calendar.svg" class="badge-link" alt="Calendar"> Calendar
+                        <img src="/static/img/072-location.svg" class="badge-link" alt="Location"> Location
+                        <img src="/static/img/269-info.svg" class="badge-link" alt="Info"> Info
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    $(function() {
+        // Test 1: Initialize multiselect
+        console.log("Testing multiselect initialization...");
+        try {
+            $("#test-multiselect").multiselect({
+                includeSelectAllOption: true,
+                numberDisplayed: 2,
+                buttonWidth: '100%'
+            });
+            console.log("✅ Multiselect initialized successfully");
+        } catch(e) {
+            console.error("❌ Multiselect failed:", e);
+        }
+        
+        // Test 2: Local timezone detection
+        console.log("Testing timezone detection...");
+        try {
+            var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            $('.local-timezone').text(local_timezone.toString());
+            console.log("✅ Timezone detected:", local_timezone);
+        } catch(e) {
+            console.error("❌ Timezone detection failed:", e);
+            $('.local-timezone-hide').hide();
+        }
+        
+        // Test 3: Moment.js timezone support
+        console.log("Testing moment.js timezone support...");
+        try {
+            // Add UTC timezone support
+            for (let offset = -12; offset <= 12; offset++) {
+                const posixSign = offset <= 0 ? '+' : '-';
+                const isoSign = offset >= 0 ? '+' : '-';
+                const link = `Etc/GMT${posixSign}${Math.abs(offset)}|UTC${isoSign}${Math.abs(offset)}`;
+                moment.tz.link(link);
+            }
+            
+            var confDate = moment.tz("2025-08-03 23:59:59", "GMT+2");
+            var abstractDate = moment.tz("2025-07-15 23:59:59", "GMT+2");
+            
+            $('#test-timer').countdown(confDate.toDate(), function(event) {
+                $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
+            });
+            
+            $('#test-deadline').html(confDate.toString());
+            $('#test-abstract-deadline').html(abstractDate.toString());
+            
+            console.log("✅ Moment.js timezone working");
+            console.log("Conference deadline:", confDate.toString());
+            console.log("Abstract deadline:", abstractDate.toString());
+        } catch(e) {
+            console.error("❌ Moment.js timezone failed:", e);
+            $('#test-timer').html("Error");
+            $('#test-deadline').html("Error");
+            $('#test-abstract-deadline').html("Error");
+        }
+        
+        // Test 4: Check if all JS libraries loaded
+        console.log("Testing library availability...");
+        console.log("jQuery:", typeof $ !== 'undefined' ? "✅" : "❌");
+        console.log("Bootstrap:", typeof $.fn.multiselect !== 'undefined' ? "✅" : "❌");
+        console.log("Moment.js:", typeof moment !== 'undefined' ? "✅" : "❌");
+        console.log("Moment Timezone:", typeof moment.tz !== 'undefined' ? "✅" : "❌");
+        console.log("Store.js:", typeof store !== 'undefined' ? "✅" : "❌");
+        console.log("Countdown:", typeof $.fn.countdown !== 'undefined' ? "✅" : "❌");
+        
+        console.log("\n=== Feature Integration Test Complete ===");
+    });
+    </script>
+    
+    <style>
+    .feature-test {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    
+    .feature-test h3 {
+        margin-top: 0;
+        color: #0097e6;
+    }
+    </style>
+</body>
+</html>
