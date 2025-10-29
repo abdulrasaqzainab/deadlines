@@ -183,6 +183,11 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         function getSafeTimezone(timezone) {
           if (!timezone) return "America/New_York";
           
+          // Convert GMT+X format to UTC+X format
+          if (timezone.startsWith("GMT")) {
+            timezone = timezone.replace("GMT", "UTC");
+          }
+          
           // Check if it's a UTC timezone
           if (timezone.startsWith("UTC")) {
             return timezone;
@@ -193,8 +198,8 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
             moment.tz(timezone);
             return timezone;
           } catch (e) {
-            console.warn(`Invalid timezone: ${timezone}, falling back to America/New_York`);
-            return "America/New_York";
+            console.warn(`Invalid timezone: ${timezone}, falling back to UTC`);
+            return "UTC";
           }
         }
         
