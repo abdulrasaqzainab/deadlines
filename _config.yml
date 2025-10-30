@@ -30,7 +30,6 @@ include: ['_pages']
 
 # Exclude files/directories not needed in the final site
 exclude: 
-  - 'static'
   - 'utils'
   - 'venv'
   - '.qodo'
