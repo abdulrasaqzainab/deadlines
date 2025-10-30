@@ -223,32 +223,6 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
           name2sub[conf_type_data[i]['name']] = conf_type_data[i]['sub'];
         }
 
-        // Initialize multiselect dropdown early so it exists even if later code throws
-        try {
-          $("#subject-select").multiselect({
-            includeSelectAllOption: true,
-            numberDisplayed: 2,
-            buttonWidth: '100%',
-            maxHeight: 400,
-            enableFiltering: true,
-            enableCaseInsensitiveFiltering: true,
-            filterPlaceholder: 'Search subjects...',
-            onChange: function(option, checked, select) {
-              var selectedSubs = $("#subject-select").val();
-              if (!selectedSubs) selectedSubs = [];
-              update_filtering({ subs: selectedSubs, all_subs: all_subs });
-            },
-            onSelectAll: function() {
-              update_filtering({ subs: all_subs, all_subs: all_subs });
-            },
-            onDeselectAll: function() {
-              update_filtering({ subs: [], all_subs: all_subs });
-            }
-          });
-        } catch (e) {
-          console.warn('Multiselect init failed:', e);
-        }
-
         {% for conf in site.data.conferences %}
         {% if conf.deadline == "TBA" %}
           $('#{{conf.id}} .timer').html("TBA");
@@ -258,15 +232,10 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
           var timezone = getSafeTimezone("{{conf.timezone | default: 'UTC'}}");
           var confDate = moment.tz("{{conf.deadline}}", timezone);
 
-          // render countdown timer (guarded so a missing countdown plugin doesn't break other scripts)
-          try {
-            $('#{{conf.id}} .timer').countdown(confDate.toDate(), function(event) {
-              $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
-            });
-          } catch (e) {
-            console.warn('Countdown init failed for {{conf.id}}:', e);
-            $('#{{conf.id}} .timer').html('TBA');
-          }
+          // render countdown timer
+          $('#{{conf.id}} .timer').countdown(confDate.toDate(), function(event) {
+            $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
+          });
           
           // convert deadline to local timezone
           try {
