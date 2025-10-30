@@ -274,7 +274,8 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
             }
           });
           document.querySelector('#{{conf.id}} .calendar').appendChild(myCalendar);
-          $('#{{conf.id}} .conf-sub').html(sub2name["{{conf.sub}}"].toLocaleLowerCase());
+          var subjectName = sub2name["{{conf.sub}}"];
+          $('#{{conf.id}} .conf-sub').html(subjectName ? subjectName.toLocaleLowerCase() : "{{conf.sub}}");
 
           // check if date has passed, add 'past' class to it
           var today = moment();
