@@ -26,7 +26,7 @@ body *::selection {
 }
 
 .top-strip {
-  background-color: #0097e6;
+  background-color: #010e15;
   background-image: linear-gradient(to right, #0097e6, #00a8ff);
   height: 0.35em;
   width: 100%;

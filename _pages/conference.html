@@ -76,7 +76,7 @@ permalink:  /conference/
           <hr>
         </div>
         <footer>
-          <a href="/">{{ site.domain }}</a> is maintained by <a href="http://www.vima.co.za/research/research-university-of-pretoria/">Data Science for Social Impact @ UP</a>.<br>
+          <a href="{{ site.baseurl }}/">{{ site.domain }}</a> is maintained by <a href="http://www.vima.co.za/research/research-university-of-pretoria/">Data Science for Social Impact @ UP</a>.<br>
 Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/mlds-africa">Mailing List</a>.
         </footer>
     </div>
@@ -124,7 +124,7 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         {% for conf in site.data.conferences %}
             if (conf == "{{ conf.id }}") {
               $('#conf-title-href').text("{{conf.title}} {{conf.year}}");
-              $('#conf-title-href').attr('href', "/conference?id={{conf.id}}");
+              $('#conf-title-href').attr('href', "{{ site.baseurl }}/conference?id={{conf.id}}");
               $('#conf-date').text("{{conf.date}}");
               $('#conf-place').text("{{conf.place}}");
               $('#conf-website').text("{{conf.link}}");
