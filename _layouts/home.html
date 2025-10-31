@@ -36,9 +36,11 @@
                         style="display: none"
                       >
                         {% for type in site.data.types %}
+                        {% unless type.sub == 'CON' or type.sub == 'WP' or type.sub == 'IND' or type.sub == 'JRN' %}
                         <option value="{{type.sub}}" id="{{type.sub}}-checkbox">
                           {{type.name}} ({{type.sub}})
                         </option>
+                        {% endunless %}
                         {% endfor %}
                       </select>
                     </div>
