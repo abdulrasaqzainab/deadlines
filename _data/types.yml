@@ -9,6 +9,8 @@
   sub: IND
 - name: Computer Vision
   sub: CV
+- name: Computer Graphics
+  sub: CG
 - name: Data Mining
   sub: DM
 - name: Machine Learning
@@ -19,3 +21,9 @@
   sub: RO
 - name: Speech/SigProc
   sub: SP
+- name: Automated Planning
+  sub: AP
+- name: Knowledge Representation
+  sub: KR
+- name: Human-Computer Interaction
+  sub: HCI
