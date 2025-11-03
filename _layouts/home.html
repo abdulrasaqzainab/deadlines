@@ -32,15 +32,18 @@
                       <select
                         id="subject-select"
                         name="subject-select"
-                        multiple="multiple"
-                        style="display: none"
+                        class="selectpicker"
+                        multiple
+                        data-live-search="true"
+                        data-actions-box="true"
+                        data-width="100%"
+                        data-size="8"
+                        title="Select subjects to filter..."
                       >
                         {% for type in site.data.types %}
-                        {% unless type.sub == 'CON' or type.sub == 'WP' or type.sub == 'IND' or type.sub == 'JRN' %}
                         <option value="{{type.sub}}" id="{{type.sub}}-checkbox">
                           {{type.name}} ({{type.sub}})
                         </option>
-                        {% endunless %}
                         {% endfor %}
                       </select>
                     </div>
@@ -316,26 +319,23 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
           }
         });
 
-        // Initialize multiselect dropdown
-        $("#subject-select").multiselect({
-          includeSelectAllOption: true,
-          numberDisplayed: 2,
-          buttonWidth: '100%',
-          maxHeight: 400,
-          enableFiltering: true,
-          enableCaseInsensitiveFiltering: true,
-          filterPlaceholder: 'Search subjects...',
-          onChange: function(option, checked, select) {
-            var selectedSubs = $("#subject-select").val();
-            if (!selectedSubs) selectedSubs = [];
-            update_filtering({ subs: selectedSubs, all_subs: all_subs });
+        // Initialize bootstrap-select dropdown
+        $('#subject-select').selectpicker({
+          noneSelectedText: 'Select subjects to filter...',
+          noneResultsText: 'No subjects found',
+          countSelectedText: function(numSelected, numTotal) {
+            return (numSelected == 1) ? '1 subject selected' : numSelected + ' subjects selected';
           },
-          onSelectAll: function() {
-            update_filtering({ subs: all_subs, all_subs: all_subs });
-          },
-          onDeselectAll: function() {
-            update_filtering({ subs: [], all_subs: all_subs });
-          }
+          selectAllText: 'Select All',
+          deselectAllText: 'Deselect All',
+          multipleSeparator: ', ',
+          style: 'btn-outline-secondary'
+        });
+
+        // Handle selection change
+        $('#subject-select').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+          var selectedSubs = $(this).val() || [];
+          update_filtering({ subs: selectedSubs, all_subs: all_subs });
         });
 
         // Helper function to update filtering
@@ -373,10 +373,10 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         // Get subjects from browser cache
         if (subs === undefined) {
           subs = all_subs;
-          $("#subject-select").multiselect('selectAll', false);
+          $('#subject-select').selectpicker('selectAll');
         } else {
-          $("#subject-select").multiselect('deselectAll', false);
-          $("#subject-select").multiselect('select', subs, false);
+          $('#subject-select').selectpicker('deselectAll');
+          $('#subject-select').selectpicker('val', subs);
         }
         
         // Apply initial filtering
@@ -385,8 +385,8 @@ Join the MLDS Africa <a target="_blank" href="https://groups.google.com/d/forum/
         // Event handler on sub badge click
         $('.conf-sub').click(function (e) {
             var csub = $(this).data('sub');
-            $("#subject-select").multiselect('deselectAll', false);
-            $("#subject-select").multiselect('select', [csub], false);
+            $('#subject-select').selectpicker('deselectAll');
+            $('#subject-select').selectpicker('val', [csub]);
             update_filtering({ subs: [csub], all_subs: all_subs });
         });
     });

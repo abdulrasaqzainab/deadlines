@@ -2,79 +2,59 @@ body {
   font-size: 16px;
   line-height: 23px;
   font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  padding-bottom: 30px;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 body *::selection {
-  background: #0097e6;
+  background: #e74c3c;
   color: #fff;
 }
 
 .container {
   max-width: 980px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: #fff;
-  border-radius: 0 0 5px 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .top-strip {
-  background-color: #010e15;
-  background-image: linear-gradient(to right, #0097e6, #00a8ff);
-  height: 0.35em;
+  background-color: #333;
+  height: 0.25em;
   width: 100%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
 }
 
 h1 {
   margin: 0 0 10px;
   font-size: 30px;
   line-height: 35px;
-  font-weight: 600;
-  color: #333;
 }
 
 h2 {
   margin: 0 0 10px;
   font-size: 25px;
   line-height: 30px;
-  font-weight: 500;
-  color: #444;
 }
 
 h3 {
   margin: 0;
   font-size: 20px;
   line-height: 25px;
-  font-weight: 500;
-  color: #555;
 }
 
 .page-header {
-  margin-top: 25px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #f0f0f0;
 }
 
 #conf-title.page-header {
-  border-bottom: 1px solid #f0f0f0;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  padding: 15px;
+  border-bottom: none;
+}
+
+#conf-full-name {
+  margin-bottom: 5px;
 }
 
 p.authors {
@@ -98,17 +78,16 @@ p {
 a {
   text-decoration: none;
   border-bottom: 1px solid #ccc;
-  color: #0097e6;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  color: inherit;
 }
 
 p.lead.authors a {
   border-bottom: none;
 }
 
-a:hover, a:focus {
-  color: #00a8ff;
-  border-color: #00a8ff;
+a:hover,
+a:focus {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -125,220 +104,199 @@ pre {
 
 footer {
   font-size: 13px;
-  margin-top: 30px;
-  padding: 15px 10px;
-  border-top: 1px solid #eee;
-  color: #666;
-  line-height: 1.6;
-  border-radius: 0 0 5px 5px;
-  text-align: center;
-  background-color: #f8f9fa;
-}
-
-footer a {
-  color: #0097e6;
-  font-weight: 500;
-}
-
-.past {
-  opacity: 0.65;
-  transition: opacity 0.3s ease;
-}
-
-.past:hover {
-  opacity: 0.9;
 }
 
 .conf-row {
   margin-bottom: 5px;
 }
 
-.conf-title {
+.conf-title,
+.conf-title-small,
+.conf-title-icon {
   font-size: 20px;
-  font-weight: 600;
-  color: #0097e6;
-  display: inline-block;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-  padding-bottom: 2px;
+  font-weight: 400;
+
 }
 
-.conf-title:hover {
-  border-color: #0097e6;
-  color: #00a8ff;
-  text-decoration: none;
+.conf-title-small {
+  display: none;
 }
 
-.deadline, .meta {
+.conf-title-icon {
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.deadline,
+.meta {
   font-size: 13px;
-  line-height: 1.6;
-  color: #555;
 }
 
 .note {
   font-size: 13px;
-  margin-bottom: 8px;
-  padding: 5px 8px;
-  background-color: #f8f9fa;
-  border-left: 3px solid #0097e6;
-  border-radius: 0 3px 3px 0;
+  margin-bottom: 5px;
 }
 
-.timer {
+.timer,
+.timer-small {
   font-size: 20px;
-  font-weight: 500;
-  color: #444;
+  font-weight: 400;
+}
+
+#confs {
+  margin-top: 20px;
+}
+.timer-small {
+  display: none;
 }
 
 #conf-timer {
   font-size: 72px;
-  color: #0097e6;
-  font-weight: 500;
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #f1f8fe;
-  border-radius: 5px;
-  margin-top: 15px;
+  color: #444;
+  margin-top: 40px;
+  margin-bottom: 0.5em;
+}
+
+#conf-key-facts {
+  margin-bottom: 10px;
 }
 
 .conf-sub {
-  color: #0097e6;
-  background: #f1f8fe;
+  color: rgb(36, 101, 191);
+  background: rgba(236, 240, 241, 0.7);
   font-size: 13px;
-  padding: 4px 8px;
+  padding: 3px 5px;
+  margin-right: 8px;
   cursor: pointer;
-  font-weight: 400;
-  border-radius: 3px;
-  display: inline-block;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.conf-sub:hover {
-  background: #e1f0fd;
-  color: #0076b3;
+  font-weight: 300;
 }
 
 .conf-sub::selection {
-  background: #0097e6;
+  background: #333;
 }
 
 .checkbox input[type="checkbox"]:checked:after {
-  background-color: #0097e6;
-  border-color: #0097e6;
+  background-color: #333;
+  border-color: #333;
 }
 
-.checkbox input[type="checkbox"]:after, .checkbox input[type="checkbox"]:focus:after {
-  border-color: #0097e6;
+.checkbox input[type="checkbox"]:after,
+.checkbox input[type="checkbox"]:focus:after {
+  border-color: #333;
 }
 
-@media only screen and (max-width: 780px) {
-  #conf-timer {
-    font-size: 64px;
-    padding: 8px 15px;
+#sort-order-checkbox {
+    text-align: right;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+#sort-order-checkbox input[type="checkbox"]:checked:after {
+    background-color: #333;
+    border-color: #333;
   }
   
+#sort-order-checkbox input[type="checkbox"]:after,
+#sort-order-checkbox input[type="checkbox"]:focus:after {
+    border-color: #333;
+}
+
+.filter-label {
+  text-align: right;
+}
+
+
+.pwc-link {
+  text-decoration: none;
+  border: none;
+  vertical-align: middle;
+}
+
+.pwc-link:hover {
+  border-bottom: 1px solid #333;
+}
+
+.icon-inner {
+  width: .95em;
+  height: .95em;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  fill: currentColor;
+}
+
+.pwc-icon {
+  color: #333;
+}
+
+.twitter-github-icons {
+  line-height: 16px;
+}
+
+#past-events-title {
+  padding-bottom: 15px;
+  border-bottom: 2px solid #bb2d3b;
+}
+
+.badge-link {
+  vertical-align: middle; 
+  margin-bottom: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+
+.badge-danger {
+  background-color: #bb2d3b;
+}
+
+@media only screen and (max-width: 768px) {
+  #conf-timer {
+    font-size: 64px;
+  }
   .calendar {
     margin-bottom: 10px;
   }
-  
-  .container {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  
-  .conference-item {
-    padding: 10px 8px;
-  }
-  
-  .page-header {
-    padding: 15px;
-    margin-top: 15px;
+  .filter-label {
+    text-align: left;
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 576px) {
   #conf-timer {
     font-size: 36px;
   }
-  
-  h1 {
-    font-size: 24px;
-    line-height: 28px;
+  .conf-place {
+    display: none;
   }
-  
-  /* Improve visibility on mobile - show place and date but style differently */
-  .conf-place, .conf-date {
-    display: inline-block;
-    font-size: 11px;
-    margin-right: 5px;
+  .conf-date {
+    display: none;
   }
-  
   .note {
-    padding: 3px 5px;
-    font-size: 11px;
-    margin-bottom: 5px;
+    display: none;
   }
-  
   .conf-row {
     margin-bottom: 7px;
   }
-  
-  /* Enhanced responsive styles for new fields */
-  .conf-dates, .conf-hindex {
-    font-size: 11px;
-    margin-bottom: 3px;
-    padding: 2px 4px;
-    display: inline-block;
-    width: auto;
-  }
-  
-  .abstract-deadline {
-    font-size: 11px;
-    padding-left: 2px;
-  }
-  
-  .conf-fullname {
-    font-size: 12px;
-    margin-bottom: 5px;
-    line-height: 1.3;
-  }
-  
-  .conf-links {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 11px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .conf-links a {
-    margin-right: 8px;
-    margin-bottom: 3px;
-  }
-  
-  /* Improve timer visibility */
   .timer {
-    font-size: 18px;
-    font-weight: 600;
+    display: none;
   }
-  
-  /* Make conference title stand out more */
+  .timer-small {
+    text-align: right;
+    display: grid;
+  }
   .conf-title {
-    font-size: 18px;
+    display: none;
   }
+  .conf-title-small {
+    display: inline;
+  }
+
 }
 
 @media only screen and (max-width: 375px) {
   #conf-timer {
-    font-size: 30px;
-    line-height: 1.2;
-    word-break: break-word;
-  }
-  
-  .conf-sub {
-    padding: 2px 5px;
-    font-size: 11px;
-    margin-top: 3px;
+    font-size: 28px;
   }
 }
 
@@ -348,7 +306,7 @@ footer a {
 
 .calendar {
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .calendar img {
@@ -363,22 +321,16 @@ footer a {
   height: 20px;
 }
 
-/* Conference divider styling */
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 151, 230, 0.2), rgba(0, 0, 0, 0));
-  margin-top: 15px;
-  margin-bottom: 15px;
+/* Additional styles for enhanced functionality - keeping from existing */
+.past {
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
 }
 
-/* Add space between conferences */
-#conferences > div {
-  margin-bottom: 15px;
-  padding-bottom: 5px;
+.past:hover {
+  opacity: 0.9;
 }
 
-/* Styles for new fields */
 .conference-item {
   padding: 12px;
   border-radius: 5px;
@@ -388,8 +340,8 @@ hr {
 
 .conference-item:hover {
   background-color: #f8f9fa;
-  border: 1px solid #e1f0fd;
-  box-shadow: 0 3px 6px rgba(0,151,230,0.05);
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
   transform: translateY(-1px);
 }
 
@@ -428,13 +380,13 @@ hr {
   margin-bottom: 4px;
   display: inline-block;
   padding: 2px 8px;
-  background-color: #f1f8fe;
+  background-color: #f8f9fa;
   border-radius: 3px;
-  border-left: 2px solid #0097e6;
+  border-left: 2px solid #333;
 }
 
 .conf-hindex strong {
-  color: #0097e6;
+  color: #333;
   font-weight: 600;
 }
 
@@ -456,7 +408,7 @@ hr {
   font-style: italic;
   margin-top: 4px;
   padding-left: 3px;
-  border-left: 2px solid #0097e6;
+  border-left: 2px solid #333;
 }
 
 .deadline-container {
@@ -464,7 +416,7 @@ hr {
   padding: 8px;
   background-color: #f8f9fa;
   border-radius: 5px;
-  border-left: 3px solid #0097e6;
+  border-left: 3px solid #333;
 }
 
 .conf-links {
@@ -473,19 +425,18 @@ hr {
 }
 
 .conf-links a {
-  color: #0097e6;
-  border-bottom: 1px dotted #0097e6;
+  color: #333;
+  border-bottom: 1px dotted #333;
   margin-right: 10px;
   padding: 2px 0;
   font-weight: 500;
 }
 
 .conf-links a:hover {
-  color: #00a8ff;
-  border-bottom: 1px solid #00a8ff;
+  color: #666;
+  border-bottom: 1px solid #666;
 }
 
-/* Multiselect dropdown styling */
 .multiselect-container {
   z-index: 1000;
 }
@@ -499,45 +450,14 @@ hr {
 }
 
 .multiselect:hover {
-  border-color: #0097e6;
+  border-color: #333;
 }
 
 .multiselect:focus {
-  border-color: #0097e6;
-  box-shadow: 0 0 0 2px rgba(0, 151, 230, 0.2);
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.2);
 }
 
-.filter-label {
-  font-weight: 500;
-  color: #555;
-}
-
-/* Badge link styling */
-.badge-link {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.badge-link:hover {
-  opacity: 1;
-}
-
-.icon-inner {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-}
-
-.icon-inner svg {
-  width: 100%;
-  height: 100%;
-  fill: #0097e6;
-}
-
-/* Local timezone info styling */
 .local-timezone-hide {
   font-size: 13px;
   color: #666;
@@ -545,35 +465,10 @@ hr {
   padding: 5px 8px;
   background-color: #f8f9fa;
   border-radius: 3px;
-  border-left: 3px solid #ffc107;
+  border-left: 3px solid #808080;
 }
 
 .local-timezone {
   font-weight: 500;
   color: #333;
-}
-
-/* Past events section styling */
-#past-events-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #666;
-  font-size: 24px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
-
-#sort-order-checkbox {
-  margin-bottom: 20px;
-  font-size: 14px;
-}
-
-#sort-order-checkbox label {
-  font-weight: normal;
-  color: #666;
-  cursor: pointer;
-}
-
-#sort-order-checkbox input[type="checkbox"] {
-  margin-right: 8px;
 }
